@@ -15,6 +15,7 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var shortTermBtn: UIButton!
     @IBOutlet weak var longTermBtn: UIButton!
     @IBOutlet weak var nextBtn: UIButton!
+    @IBOutlet weak var btnStackView: UIStackView!
     
     // Vars
     var goalType: GoalType = .shortTerm
@@ -25,6 +26,7 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
         goalTextView.delegate = self
         
         nextBtn.bindToKeyboard()
+        btnStackView.bindToKeyboard()
         shortTermBtn.setSelectedColor()
         longTermBtn.setDeselectedColor()
         
