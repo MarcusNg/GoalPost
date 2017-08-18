@@ -15,6 +15,8 @@
 		5F6AA0F21F46A3DE006A7AB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5F6AA0F01F46A3DE006A7AB5 /* LaunchScreen.storyboard */; };
 		5F6AA1001F46B423006A7AB5 /* GoalCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F6AA0FF1F46B423006A7AB5 /* GoalCell.swift */; };
 		5F950AB61F46B8E0004E6F8A /* GoalType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F950AB51F46B8E0004E6F8A /* GoalType.swift */; };
+		5F950AB81F46B983004E6F8A /* CreateGoalVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F950AB71F46B983004E6F8A /* CreateGoalVC.swift */; };
+		5F950ABD1F46BD84004E6F8A /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5F950ABC1F46BD84004E6F8A /* UIViewControllerExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +30,8 @@
 		5F6AA0F31F46A3DE006A7AB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5F6AA0FF1F46B423006A7AB5 /* GoalCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalCell.swift; sourceTree = "<group>"; };
 		5F950AB51F46B8E0004E6F8A /* GoalType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalType.swift; sourceTree = "<group>"; };
+		5F950AB71F46B983004E6F8A /* CreateGoalVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGoalVC.swift; sourceTree = "<group>"; };
+		5F950ABC1F46BD84004E6F8A /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +82,7 @@
 			isa = PBXGroup;
 			children = (
 				5F6AA0E61F46A3DE006A7AB5 /* GoalsVC.swift */,
+				5F950AB71F46B983004E6F8A /* CreateGoalVC.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 		5F6AA0FC1F46A485006A7AB5 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				5F950ABC1F46BD84004E6F8A /* UIViewControllerExt.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -177,6 +183,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5F6AA1001F46B423006A7AB5 /* GoalCell.swift in Sources */,
+				5F950AB81F46B983004E6F8A /* CreateGoalVC.swift in Sources */,
+				5F950ABD1F46BD84004E6F8A /* UIViewControllerExt.swift in Sources */,
 				5F950AB61F46B8E0004E6F8A /* GoalType.swift in Sources */,
 				5F6AA0E71F46A3DE006A7AB5 /* GoalsVC.swift in Sources */,
 				5F6AA0E51F46A3DE006A7AB5 /* AppDelegate.swift in Sources */,
