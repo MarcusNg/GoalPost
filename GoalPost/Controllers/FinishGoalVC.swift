@@ -32,9 +32,11 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func createGoalBtnPressed(_ sender: Any) {
-        self.save { (complete) in
-            if complete {
-                dismiss(animated: true, completion: nil)
+        if pointsTF.text != "" {
+            self.save { (complete) in
+                if complete {
+                    dismiss(animated: true, completion: nil)
+                }
             }
         }
     }

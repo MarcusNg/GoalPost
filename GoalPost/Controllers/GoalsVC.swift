@@ -15,25 +15,52 @@ class GoalsVC: UIViewController {
 
     // Outlets
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var undoView: UIView!
     
     // Vars
     var goals = [Goal]()
+    var lastRemovedGoalDesc: String?
+    var lastRemovedGoalType: String?
+    var lastRemovedGoalCompletionValue: Int32?
+    var lastRemovedGoalProgress: Int32?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        
+        undoView.isHidden = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        fetchCoreDataObjects()
-        tableView.reloadData()
+        setupTableView()
     }
 
     @IBAction func addGoalBtnPressed(_ sender: Any) {
         guard let createGoalVC = storyboard?.instantiateViewController(withIdentifier: "CreateGoalVC") else { return }
         presentDetail(createGoalVC)
+        undoView.isHidden = true
+    }
+    
+    @IBAction func undoBtnPressed(_ sender: Any) {
+        guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
+        
+        let oldGoal = Goal(context: managedContext)
+        oldGoal.goalDescription = lastRemovedGoalDesc
+        oldGoal.goalType = lastRemovedGoalType
+        oldGoal.goalCompletionValue = lastRemovedGoalCompletionValue!
+        oldGoal.goalProgress = lastRemovedGoalProgress!
+        
+        do {
+            try managedContext.save()
+            undoView.isHidden = true
+            setupTableView()
+            print("Successfully undo'd")
+        } catch {
+            debugPrint("Could not undo \(error.localizedDescription)")
+        }
+        
     }
     
     func fetchCoreDataObjects() {
@@ -48,9 +75,15 @@ class GoalsVC: UIViewController {
         }
     }
     
+    func setupTableView() {
+        fetchCoreDataObjects()
+        tableView.reloadData()
+    }
+    
 }
 
 extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -95,6 +128,7 @@ extension GoalsVC: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension GoalsVC {
+    
     func setProgress(atIndexPath indexPath: IndexPath) {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
@@ -119,11 +153,18 @@ extension GoalsVC {
         guard let managedContext = appDelegate?.persistentContainer.viewContext else { return }
         
         // Delete goal
-        managedContext.delete(goals[indexPath.row])
+        let delGoal = goals[indexPath.row]
         
+        lastRemovedGoalDesc = delGoal.goalDescription
+        lastRemovedGoalType = delGoal.goalType
+        lastRemovedGoalCompletionValue = delGoal.goalCompletionValue
+        lastRemovedGoalProgress = delGoal.goalProgress
+        
+        managedContext.delete(delGoal)
         // Save after deleting
         do {
             try managedContext.save()
+            undoView.isHidden = false
             print("Successfully removed goal")
         } catch {
             debugPrint("Could not remove: \(error.localizedDescription)")
