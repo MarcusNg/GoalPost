@@ -10,6 +10,7 @@ import UIKit
 
 class GoalCell: UITableViewCell {
 
+    // Outlets
     @IBOutlet weak var goalDescriptionLabel: UILabel!
     @IBOutlet weak var goalTypeLabel: UILabel!
     @IBOutlet weak var goalProgressLabel: UILabel!
@@ -25,9 +26,9 @@ class GoalCell: UITableViewCell {
         // Configure the view for the selected state
     }
 
-    func configureCell(description: String, type: String, progressAmount: Int) {
+    func configureCell(description: String, type: GoalType, progressAmount: Int) {
         self.goalDescriptionLabel.text = description
-        self.goalTypeLabel.text = type
+        self.goalTypeLabel.text = type.rawValue
         self.goalProgressLabel.text = String(describing: progressAmount)
     }
     
