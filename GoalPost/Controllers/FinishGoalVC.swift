@@ -19,17 +19,23 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
     var goalType: GoalType!
     
     func initData(description: String, type: GoalType) {
-        
+        self.goalDescription = description
+        self.goalType = type
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        createGoalBtn.bindToKeyboard()
+        pointsTF.delegate = self
     }
     
     @IBAction func createGoalBtnPressed(_ sender: Any) {
         // Pass data into Core Data Model
+    }
+
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismissDetail()
     }
     
 }
