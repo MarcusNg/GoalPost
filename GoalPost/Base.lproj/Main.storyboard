@@ -13,6 +13,7 @@
         <array key="AvenirNext.ttc">
             <string>AvenirNext-Bold</string>
             <string>AvenirNext-DemiBold</string>
+            <string>AvenirNext-Heavy</string>
             <string>AvenirNext-Regular</string>
         </array>
     </customFonts>
@@ -147,17 +148,35 @@
                                                     <color key="textColor" red="0.33689622250000001" green="0.76498925689999997" blue="0.30743622869999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NgE-tC-ZWz">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GOAL COMPLETE" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4I-u5-gDk">
+                                                            <rect key="frame" x="56" y="15" width="263" height="41"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="30"/>
+                                                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.91764705879999997" green="0.66274509800000003" blue="0.2666666667" alpha="0.80000000000000004" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="NgE-tC-ZWz" firstAttribute="leading" secondItem="dEh-nd-XRB" secondAttribute="leading" id="2H0-Hw-4Hw"/>
                                                 <constraint firstItem="SVX-G6-34l" firstAttribute="top" secondItem="jUb-aD-0kP" secondAttribute="top" id="Fxl-uE-lnp"/>
+                                                <constraint firstAttribute="bottom" secondItem="NgE-tC-ZWz" secondAttribute="bottom" id="Gg9-kZ-LYt"/>
                                                 <constraint firstItem="jUb-aD-0kP" firstAttribute="top" secondItem="dEh-nd-XRB" secondAttribute="top" constant="8" id="KCp-cs-dEf"/>
                                                 <constraint firstItem="SVX-G6-34l" firstAttribute="leading" secondItem="dEh-nd-XRB" secondAttribute="leadingMargin" id="Ob9-XK-UUv"/>
                                                 <constraint firstItem="jUb-aD-0kP" firstAttribute="centerY" secondItem="dEh-nd-XRB" secondAttribute="centerY" id="djU-XV-80A"/>
                                                 <constraint firstAttribute="bottom" secondItem="jUb-aD-0kP" secondAttribute="bottom" constant="9" id="eea-21-z6y"/>
+                                                <constraint firstItem="NgE-tC-ZWz" firstAttribute="top" secondItem="dEh-nd-XRB" secondAttribute="top" id="qnY-yS-PJ5"/>
                                                 <constraint firstAttribute="trailing" secondItem="jUb-aD-0kP" secondAttribute="trailing" constant="8" id="uXw-cl-edq"/>
+                                                <constraint firstAttribute="trailing" secondItem="NgE-tC-ZWz" secondAttribute="trailing" id="yhL-9U-obz"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="completionView" destination="NgE-tC-ZWz" id="q4U-Wc-Aot"/>
                                             <outlet property="goalDescriptionLabel" destination="5gY-be-cMd" id="kPM-Jf-Eio"/>
                                             <outlet property="goalProgressLabel" destination="jUb-aD-0kP" id="4sM-Sy-Dhm"/>
                                             <outlet property="goalTypeLabel" destination="2DX-gZ-DmV" id="MrR-S8-SGy"/>

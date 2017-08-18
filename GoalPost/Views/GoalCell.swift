@@ -14,22 +14,18 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalDescriptionLabel: UILabel!
     @IBOutlet weak var goalTypeLabel: UILabel!
     @IBOutlet weak var goalProgressLabel: UILabel!
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
-    }
+    @IBOutlet weak var completionView: UIView!
 
     func configureCell(goal: Goal) {
         self.goalDescriptionLabel.text = goal.goalDescription
         self.goalTypeLabel.text = goal.goalType
         self.goalProgressLabel.text = String(describing: goal.goalProgress)
+        
+        if goal.goalProgress == goal.goalCompletionValue {
+            completionView.isHidden = false
+        } else {
+            completionView.isHidden = true
+        }
     }
     
 }
