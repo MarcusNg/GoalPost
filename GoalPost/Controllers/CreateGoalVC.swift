@@ -29,11 +29,12 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
         btnStackView.bindToKeyboard()
         shortTermBtn.setSelectedColor()
         longTermBtn.setDeselectedColor()
-        
-//        let tap = UITapGestureRecognizer(target: self, action: #selector(CreateGoalVC.handleTap))
-//        view.addGestureRecognizer(tap)
     }
 
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBAction func shortTermBtnPressed(_ sender: Any) {
         goalType = .shortTerm
         shortTermBtn.setSelectedColor()
@@ -57,10 +58,6 @@ class CreateGoalVC: UIViewController, UITextViewDelegate {
     @IBAction func backBtnPressed(_ sender: Any) {
         dismissDetail()
     }
-    
-//    @objc func handleTap() {
-//        view.endEditing(true)
-//    }
     
     func textViewDidBeginEditing(_ textView: UITextView) {
         goalTextView.text = ""

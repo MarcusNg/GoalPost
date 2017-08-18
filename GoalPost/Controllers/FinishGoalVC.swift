@@ -31,6 +31,10 @@ class FinishGoalVC: UIViewController, UITextFieldDelegate {
         pointsTF.delegate = self
     }
     
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBAction func createGoalBtnPressed(_ sender: Any) {
         if pointsTF.text != "" {
             self.save { (complete) in
